@@ -264,6 +264,8 @@ background-repeat: no-repeat;
 
 <body>
 
+<style>
+
 .content-padding {
     padding: 20px;
 }
@@ -424,17 +426,7 @@ border:2px solid #ff1493;
     margin-bottom:15px;
     border:2px solid #ff1493;
 }
-    transform:scale(1.03);
-    box-shadow:0 0 25px var(--glow-pink);
-}
-
-border-radius:15px;
-
-margin-bottom:15px;
-
-border:2px solid #ff1493;
-
-}
+    
 .memory-box button{
 margin-top:20px;
 padding:10px 25px;
@@ -633,7 +625,7 @@ cursor:pointer;
 }
 </style>
 
-<div id="image-modal" onclick="this.style.display='none'">
+<div id="image-modal"> onclick="this.style.display='none'">
     <img id="modal-img">
 </div> <div class="memory-popup" id="memoryPopup">
     <div class="memory-box">
@@ -647,9 +639,7 @@ cursor:pointer;
     </div>
 </div>
 
-<audio id="bg-music">
-    <audio id="bg-music"></audio>
-</audio>
+<audio id="bg-music"></audio>
 
 <div id="particles-container" class="falling-particles"></div>
 
