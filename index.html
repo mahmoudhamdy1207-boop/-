@@ -519,17 +519,18 @@ cursor:pointer;
 
 .floating-music-player{
     position:fixed;
-    bottom:20px;
+    bottom:15px;
     left:50%;
     transform:translateX(-50%);
     z-index:9999;
     background:rgba(36,0,70,.9);
-    padding:10px 25px;
-    border-radius:50px;
+    padding:6px 15px;
+    border-radius:40px;
     border:2px solid var(--glow-pink);
     display:flex;
-    gap:10px;
+    gap:8px;
     cursor:pointer;
+    font-size:14px;
 }
   .chat-open-btn{
     width:100%;
@@ -1473,9 +1474,25 @@ function sendMsg(){
     input.value = "";
 
 }
-    .second-image{
+.second-image{
     object-fit: contain !important;
+    object-position: center;
+    height: 300px !important;
     background: #111;
+}
+    @media (max-width:768px){
+
+.floating-music-player{
+    padding:5px 12px;
+    font-size:12px;
+    bottom:10px;
+}
+
+.floating-music-player i{
+    font-size:14px;
+}
+
+}
 }
 </script>
 
