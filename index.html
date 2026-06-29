@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حياتي أسماء 🌸</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@1,700&family=Cairo:wght@400;700;900&family=Reem+Kufi:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+
+        :root {
+            --bg-dark-romantic: #0d0116;
+            --glow-pink: #ff1493;
+            --deep-purple: #240046;
+            --text-light: #f8f9fa;
+            --neon-accent: #ea00d9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background: var(--bg-dark-romantic);
+            color: var(--text-light);
+            overflow-x: hidden;
+            min-height: 100vh;
+            padding-bottom: 120px;
+        }
+
+        .chat-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(36, 0, 70, .95);
+            border: 2px solid var(--glow-pink);
+            padding: 15px;
+            border-radius: 15px;
+            z-index: 10000;
+            box-shadow: 0 0 20px rgba(255, 20, 147, .5);
+            animation: slideIn .5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .falling-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 99;
+        }
+
+        #password-screen {
+            position: fixed;
+            inset: 0;
+            background: #1e0b29;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .stage-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: .5s;
+        }
+
+        .hidden-stage {
+            display: none !important;
+        }
+
+        .loader-circle-wrap {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+        }
+
+        .loader-circle {
+            width: 100%;
+            height: 100%;
+            border: 4px solid rgba(255, 20, 147, .2);
+            border-top: 4px solid #ff1493;
+            border-radius: 50%;
+            animation: spinLoader 1s linear infinite;
+        }
+
+        .pulsating-heart {
+            position: absolute;
+            top: 34px;
+            left: 34px;
+            color: #ff1493;
+            font-size: 2rem;
+            animation: heartBeat .8s infinite alternate;
+        }
+
+        @keyframes spinLoader {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes heartBeat {
+            to {
+                transform: scale(1.2);
+            }
+        }
+
+        .loading-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .ready-avatar-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid var(--glow-pink);
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .ready-card {
+            background: #160a1f;
+            border: 2px solid var(--glow-pink);
+            border-radius: 25px;
+            padding: 30px 20px;
+            width: 90%;
+            max-width: 340px;
+            text-align: center;
+        }
+
+        .pass-input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 30px;
+            border: none;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(90deg, #ff1493, #ea00d9);
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #flower-curtain {
+            position: fixed;
+            inset: 0;
+            background: #1a002c;
+            opacity: 0;
+            pointer-events: none;
+            transition: .6s;
+            z-index: 999;
+        }
+
+        #main-content {
+            display: none;
+            max-width: 650px;
+            margin: auto;
+        }
+
+        .tiktok-style-header {
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            background:
+                linear-gradient(rgba(13, 1, 22, .8), rgba(13, 1, 22, .8)),
+                url('https://i.postimg.cc/nzyXKtYD/Whats-App-Image-2026-06-23-at-11-01-19-PM.jpg')
+                center/cover no-repeat;
+        }
+
+        .tiktok-badge {
+            background: rgba(255, 255, 255, .12);
+            padding: 8px 20px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .amiri-glow-name {
+            font-family: 'Amiri', serif;
+            font-size: 5rem;
+            color: white;
+            text-shadow:
+                0 0 10px #ff1493,
+                0 0 20px #ea00d9,
+                0 0 40px #ff1493;
+        }
+
+        .tiktok-subtext {
+            margin-top: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .content-padding {
+            padding: 20px;
+        }
+
+    </style>
+</head>
+
+<body> <style>
+
+.content-padding {
+    padding: 20px;
+}
+
+.new-date-frame {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 25px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 320px;
+    text-align: center;
+}
+
+.arrow-bounce {
+    color: var(--glow-pink);
+    font-size: 1.8rem;
+    margin-top: 10px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%,20%,50%,80%,100%{
+        transform:translateY(0);
+    }
+    40%{
+        transform:translateY(-10px);
+    }
+    60%{
+        transform:translateY(-5px);
+    }
+}
+
+.countdown-modern{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:20px auto;
+}
+
+.c-item{
+    width:75px;
+    height:75px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    background:rgba(255,20,147,.15);
+    border:2px solid var(--glow-pink);
+    border-radius:50%;
+}
+
+.c-item span{
+    font-size:1.2rem;
+    font-weight:900;
+}
+
+.c-item label{
+    font-size:.7rem;
+    color:var(--neon-accent);
+}
+
+.cards-grid{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    max-width:400px;
+    margin:auto;
+}
+
+.secret-card{
+    background:rgba(36,0,70,.6);
+    border:1px solid rgba(234,0,217,.2);
+    border-radius:15px;
+    padding:20px;
+    cursor:pointer;
+    text-align:center;
+    transition:.3s;
+}
+
+.secret-card.unlocked{
+    border-color:var(--glow-pink);
+    box-shadow:0 0 15px var(--glow-pink);
+}
+
+.card-inner-text{
+    display:none;
+    line-height:1.8;
+    font-weight:bold;
+}
+
+.gallery-section{
+    margin-top:30px;
+}
+
+.gallery-animated-layout{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+}
+.gallery-item-anim{
+    width:100%;
+    max-height:420px;
+    object-fit:contain;
+    display:block;
+    margin:auto;
+    border-radius:18px;
+    cursor:pointer;
+    transition:.35s;
+}
+.memory-card{
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,20,147,.3);
+    border-radius:22px;
+    padding:15px;
+    margin:25px 0;
+    text-align:center;
+    backdrop-filter:blur(8px);
+    box-shadow:0 0 20px rgba(255,20,147,.15);
+    transition:.3s;
+}
+  .memory-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 0 25px rgba(255,20,147,.4);
+}
+.memory-card button{
+margin-top:10px;
+padding:12px 25px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+background:#ff1493;
+color:white;
+font-weight:bold;
+}
+
+.memory-popup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.85);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:99999;
+}
+
+.memory-box{
+background:#220033;
+padding:30px;
+border-radius:20px;
+max-width:350px;
+text-align:center;
+color:#fff;
+border:2px solid #ff1493;
+}
+.memory-image{
+
+width:100%;
+
+height:500px;
+object-fit:cover;
+  .gallery-item-anim:hover{
+    transform:scale(1.03);
+    box-shadow:0 0 25px var(--glow-pink);
+}
+
+border-radius:15px;
+
+margin-bottom:15px;
+
+border:2px solid #ff1493;
+
+}
+.memory-box button{
+margin-top:20px;
+padding:10px 25px;
+border:none;
+border-radius:20px;
+background:#ff1493;
+color:white;
+cursor:pointer;
+}
+
+#image-modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.95);
+    z-index:9999;
+    justify-content:center;
+    align-items:center;
+}
+
+#modal-img{
+    max-width:92%;
+    max-height:92%;
+    border-radius:20px;
+    border:3px solid var(--glow-pink);
+    animation:zoomIn .35s ease;
+}
+  @keyframes zoomIn{
+    from{
+        transform:scale(.7);
+        opacity:0;
+    }
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.typewriter-card{
+    background:rgba(36,0,70,.4);
+    border:2px dashed var(--glow-pink);
+    border-radius:15px;
+    padding:25px;
+    margin:30px 0;
+    display:none;
+}
+
+.typewriter-text{
+    text-align:center;
+    line-height:1.8;
+    font-size:1.2rem;
+    white-space:pre-line;
+}
+
+.pre-chat-btn{
+    width:100%;
+    border:none;
+    border-radius:35px;
+    padding:16px;
+    background:linear-gradient(135deg,var(--glow-pink),var(--neon-accent));
+    color:#fff;
+    font-size:1.1rem;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.chat-container{
+    display:none;
+    background:#16022b;
+    border:1px solid rgba(255,20,147,.3);
+    border-radius:20px;
+    padding:20px;
+    margin-top:25px;
+}
+
+.chat-header{
+    text-align:center;
+    color:var(--neon-accent);
+    margin-bottom:15px;
+    font-weight:bold;
+}
+
+.message{
+    padding:12px 18px;
+    border-radius:15px;
+    max-width:85%;
+    margin-bottom:10px;
+}
+
+.message.received{
+    background:rgba(255,255,255,.1);
+}
+
+.message.sent{
+    background:var(--deep-purple);
+    color:var(--neon-accent);
+    margin-right:auto;
+}
+
+.floating-music-player{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:9999;
+    background:rgba(36,0,70,.9);
+    padding:10px 25px;
+    border-radius:50px;
+    border:2px solid var(--glow-pink);
+    display:flex;
+    gap:10px;
+    cursor:pointer;
+}
+  .chat-open-btn{
+    width:100%;
+    padding:15px;
+    margin-top:20px;
+    border:none;
+    border-radius:30px;
+    background:#ff1493;
+    color:white;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.love-chat{
+    display:none;
+    margin-top:20px;
+    background:#1d022f;
+    border:2px solid #ff1493;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.chat-head{
+    background:#ff1493;
+    color:white;
+    padding:15px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.chat-body{
+    height:300px;
+    overflow-y:auto;
+    padding:15px;
+}
+
+.chat-send{
+    display:flex;
+    gap:10px;
+    padding:10px;
+}
+
+.chat-send input{
+    flex:1;
+    padding:12px;
+    border:none;
+    border-radius:25px;
+}
+
+.chat-send button{
+    padding:12px 20px;
+    border:none;
+    border-radius:25px;
+    background:#ff1493;
+    color:white;
+    cursor:pointer;
+}
+.memory-box button{
+    margin-top:20px;
+    padding:10px 25px;
+    border:none;
+    border-radius:20px;
+    background:#ff1493;
+    color:white;
+    cursor:pointer;
+}
+
+#memoryText{
+    color:#fff;
+    font-size:20px;
+    line-height:1.8;
+    margin-top:15px;
+    display:block;
+    opacity:1;
+    visibility:visible;
+}
+.wide-image{
+    width:100%;
+    max-height:650px;
+    object-fit:contain;
+    background:rgba(255,255,255,.03);
+    border-radius:18px;
+}
+</style>
+</style>
+
+<div id="image-modal" onclick="this.style.display='none'">
+    <img id="modal-img">
+</div> <div class="memory-popup" id="memoryPopup">
+    <div class="memory-box">
+
+        <img id="memoryImage" src="" class="memory-image">
+
+        <p id="memoryText"></p>
+
+        <button onclick="closeMemory()">إغلاق ❤️</button>
+
+    </div>
+</div>
+
+<audio id="bg-music">
+    <audio id="bg-music"></audio>
+</audio>
+
+<div id="particles-container" class="falling-particles"></div>
+
+<div id="password-screen">
+
+    <div id="loading-stage" class="stage-container">
+
+        <div class="loader-circle-wrap">
+            <div class="loader-circle"></div>
+            <i class="fas fa-heart pulsating-heart"></i>
+        </div>
+
+        <h2 class="loading-title">
+            ثواني يا روحي 🥰❤️
+        </h2>
+
+    </div>
+
+    <div id="login-stage" class="stage-container hidden-stage">
+
+        <img
+        src="https://i.postimg.cc/nzyXKtYD/Whats-App-Image-2026-06-23-at-11-01-19-PM.jpg"
+        class="ready-avatar-img">
+
+        <div class="ready-card">
+
+            <input
+            id="name-input"
+            class="pass-input"
+            placeholder="اكتبي اسمك (أسماء/Asmaa) ❤️">
+
+            <button
+            class="submit-btn"
+            onclick="checkPassword()">
+
+                ادخل عمري 🥰❤️
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div id="flower-curtain"></div>
+
+<div id="main-content">
+
+    <div class="tiktok-style-header">
+
+        <div class="tiktok-badge">
+            ❤️ قررت افرحك بأقل شيء ياحبيبتي ❤️ ✨
+        </div>
+
+        <h1 class="amiri-glow-name">
+            أسماء
+        </h1>
+
+        <div class="tiktok-subtext">
+            ❤️ كل سنة وانتي منورة حياتي ❤️
+        </div>
+
+    </div>
+
+    <div class="content-padding"> <div class="new-date-frame">
+
+    <div style="font-size:1.2rem;font-weight:700;margin-bottom:15px;">
+        اول مرة اتقابلنا ❤️
+    </div>
+
+    <div style="
+        background:#1e0b29;
+        display:inline-block;
+        padding:10px 20px;
+        border-radius:20px;
+        border:1px solid #ff1493;
+        font-weight:bold;">
+
+        <i class="far fa-calendar-alt"></i>
+        2026-05-23 | 09:00 مساءً
+
+    </div>
+
+    <div class="arrow-bounce">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+
+</div>
+
+<div class="countdown-modern">
+
+    <div class="c-item">
+        <span id="c-years">0</span>
+        <label>سنين</label>
+    </div>
+
+    <div class="c-item">
+        <span id="c-months">0</span>
+        <label>شهور</label>
+    </div>
+
+    <div class="c-item">
+        <span id="c-days">0</span>
+        <label>أيام</label>
+    </div>
+
+    <div class="c-item">
+        <span id="c-hours">0</span>
+        <label>ساعات</label>
+    </div>
+
+    <div class="c-item">
+        <span id="c-minutes">0</span>
+        <label>دقائق</label>
+    </div>
+
+    <div class="c-item">
+        <span id="c-seconds">0</span>
+        <label>ثواني</label>
+    </div>
+
+</div>
+
+<h3 style="text-align:center;margin:30px 0;">
+    دوسي على الكروت ليكي رسايل خصوصي 😉❤️
+</h3>
+
+<div class="cards-grid">
+
+    <div class="secret-card"
+        onclick="unlockCard(this,'ولا بحب غيرك أنتِ يا دنيتي كلها وأجمل حاجة حصلت في حياتي 💖')">
+
+        <i class="fas fa-envelope-open-text"></i>
+        <h4 class="card-title">أول كارت</h4>
+        <p class="card-inner-text"></p>
+
+    </div>
+
+    <div class="secret-card"
+        onclick="unlockCard(this,'ولا هحب حد بعدك يا أغلى من عيوني يا شريكة عمري 🥰')">
+
+        <i class="fas fa-envelope-open-text"></i>
+        <h4 class="card-title">تاني كارت</h4>
+        <p class="card-inner-text"></p>
+
+    </div>
+
+    <div class="secret-card"
+        onclick="unlockCard(this,'معاكِ عرفت معنى الدنيا والسعادة الحقيقية 🫀✨')">
+
+        <i class="fas fa-envelope-open-text"></i>
+        <h4 class="card-title">تالت كارت</h4>
+        <p class="card-inner-text"></p>
+
+    </div>
+
+    <div class="secret-card"
+        onclick="unlockCard(this,'يا أجمل صدفة في حياتي.. بحبك يا روح قلبي 💍❤️')">
+
+        <i class="fas fa-envelope-open-text"></i>
+        <h4 class="card-title">رابع كارت</h4>
+        <p class="card-inner-text"></p>
+
+    </div>
+
+</div>
+
+<div class="gallery-section">
+
+    <h3 style="text-align:center;margin:30px 0;">
+        أجمل أوقاتنا 👇
+    </h3>
+
+    <div class="gallery-animated-layout">
+
+<div class="memory-card">
+<img
+src="https://i.postimg.cc/yYyNxGxG/Firefly-Gemini-Flash-Maintain-original-composition-and-background-apply-warm-romantic-night-atmosph.png"
+class="gallery-item-anim"
+
+data-text="يا أجمل صدفة في حياتي، يا نصيبي الحلو اللي بدعي ربنا يخليهولي في كل لحظة.. بحبك يا روح قلبي 💍❤️">
+</div>
+
+<div class="memory-card">
+<img
+src="https://i.postimg.cc/d3915gwf/Firefly-Gemini-Flash-(1).png"
+class="gallery-item-anim wide-image"
+
+data-text="أجمل ما لبست يدي، وأغلى ما سكن قلبي. 💍🥰">
+</div>
+
+<div class="memory-card">
+<img
+src="https://i.postimg.cc/HL5TSFtB/Firefly-Cinematic-moody-lighting-high-contrast-subtle-play-of-light-and-shadow-across-the-f-368979.png"
+class="gallery-item-anim"
+
+data-text="في مرايتي لا أرى نفسي فقط، أرى كل ما أتمنى أن أكونه.. أراكِ أنتِ. 🪞❤️">
+</div>
+
+<div class="memory-card">
+<img
+src="https://i.postimg.cc/tTpGBJJx/1000088472-(1).jpg"
+class="gallery-item-anim"
+
+data-text="كل وردة جنبك بتبقى غيرانة، لأنك أجمل منها بكتير يا روحي. 🌹🥰">
+</div>
+
+<div class="memory-card">
+<img
+src="https://i.postimg.cc/htWyLwft/Firefly-Gemini-Flash-A-hyper-realistic-photo-in-a-romantic-night-atmosphere-warm-soft-ambient-candl.png"
+class="gallery-item-anim"
+
+data-text="يا بخت الشهادة بيكي، ويا بختي أنا بيكي.. مبروك النجاح يا قلبي. 🎓🌹">
+</div>
+
+<div class="memory-card">
+<img
+src="https://i.postimg.cc/zvTd6Scc/Firefly-Gemini-Flash-Maintain-original-composition-and-background-apply-warm-romantic-night-atmosph.png"
+class="gallery-item-anim"
+
+data-text="الورد ده لايق عليكي، بس الضحكة دي هي اللي محلية الدنيا كلها في عيني. 🌹🥰">
+</div>
+
+<div class="memory-card">
+<img
+src="https://i.postimg.cc/Z57vKq5Y/Firefly-Gemini-Flash-Maintain-original-composition-and-background-apply-warm-romantic-night-atmosph.png"
+class="gallery-item-anim"
+
+data-text="الشهادة دي تتشال على الراس، والطلّة دي تتشال في القلب.. مبروك يا ست البنات. 🎓👠🥰">
+</div>
+</div>
+
+    <p style="
+        text-align:center;
+        margin-top:25px;
+        color:var(--glow-pink);
+        font-size:1.3rem;
+        font-weight:bold;">
+
+        كل سنة واحنا مع بعض 💕
+
+    </p>
+
+</div>
+
+<div
+id="typewriter-section"
+class="typewriter-card">
+
+    <div
+    id="typewriter-box"
+    class="typewriter-text"></div>
+
+</div>
+
+<button
+class="pre-chat-btn"
+onclick="startTypewriter()">
+
+    ممنوع الاستعجال.. استمتعي باللي جاي 🎈❤️
+
+</button>
+<button class="chat-open-btn" onclick="openChat()">
+💌 افتحي الشات
+</button>
+
+<div id="love-chat" class="love-chat">
+
+    <div class="chat-head">
+        💖 شاتنا
+    </div>
+
+    <div class="chat-body" id="chatBody">
+    </div>
+
+    <div class="chat-send">
+
+        <input
+        id="msgInput"
+        type="text"
+        placeholder="اكتبي رسالة...">
+
+        <button onclick="sendMsg()">
+            إرسال
+        </button>
+
+    </div>
+
+</div>
+<div
+id="notification-chat"
+class="chat-container">
+
+    <div class="chat-header">
+        🫀 محادثة الحب الحقيقي
+    </div>
+
+    <div class="message received">
+        أي رأيك يا روحي في المفاجأة دي؟ تستاهلي كل حاجة حلوة في الدنيا 😍❤️
+    </div>
+
+    <div class="message sent">
+        بحبك يا أجمل أسماء في الكوكب كله وبموت فيكي دايماً 💍✨
+    </div>
+
+</div>
+
+<div
+class="floating-music-player"
+onclick="toggleMusic()">
+
+    <i class="fas fa-music"></i>
+    <span id="music-status">
+        شغلي الموسيقى يا روحي
+    </span>
+
+</div> 
+          </div>
+
+<script>
+
+function showNotification(msg) {
+    const toast = document.createElement("div");
+
+    toast.className = "chat-notification";
+
+    toast.innerHTML =
+        `<i class="fas fa-heart"></i><br>${msg}`;
+
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+        toast.remove();
+    }, 4000);
+}
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    setTimeout(() => {
+
+        document
+            .getElementById("loading-stage")
+            .classList
+            .add("hidden-stage");
+
+        document
+            .getElementById("login-stage")
+            .classList
+            .remove("hidden-stage");
+
+    }, 3000);
+
+
+ document.querySelectorAll(".gallery-item-anim").forEach(img => {
+
+    img.addEventListener("click", function () {
+
+        const text = this.getAttribute("data-text");
+
+        openMemory(this.src, text);
+
+    });
+
+});
+
+});
+
+
+function checkPassword() {
+
+    const input =
+        document
+        .getElementById("name-input")
+        .value
+        .trim()
+        .toLowerCase();
+
+    if (
+        input === "أسماء" ||
+        input === "اسماء" ||
+        input === "asmaa"
+    ) {
+
+        const audio =
+            document.getElementById("bg-music");
+
+        audio.play().catch(() => {
+            console.log("المتصفح منع التشغيل التلقائي");
+        });
+
+        triggerFlowerTransition();
+
+    } else {
+
+        alert(
+            "امممم الباسورد غلط خالص! 😉❤️"
+        );
+
+    }
+}
+
+
+function triggerFlowerTransition() {
+
+    const curtain =
+        document.getElementById(
+            "flower-curtain"
+        );
+
+    curtain.style.opacity = "1";
+
+    setTimeout(() => {
+
+        document
+            .getElementById("password-screen")
+            .style.display = "none";
+
+        document
+            .getElementById("main-content")
+            .style.display = "block";
+
+        startLiveCounter();
+
+        createFallingStars();
+
+        curtain.style.opacity = "0";
+
+    }, 1200);
+
+}
+
+
+const lines = [
+
+    "تغيب الشمس والناس تنام.. ✨",
+
+    "يغيب القمر ويزيد الظلام.. 🌙",
+
+    "لكن تغيب إنت هذا حرام يا أسماء ❤️"
+
+];
+
+let lineIndex = 0;
+let charIndex = 0;
+
+
+function startTypewriter() {
+
+    const btn =
+        document.querySelector(
+            ".pre-chat-btn"
+        );
+
+    if (btn) {
+        btn.style.display = "none";
+    }
+
+    showNotification(
+        "بعتلك رسالة خاصة يا روحي 😍❤️"
+    );
+
+    const box =
+        document.getElementById(
+            "typewriter-box"
+        );
+
+    const section =
+        document.getElementById(
+            "typewriter-section"
+        );
+
+    section.style.display = "block";
+
+    if (lineIndex < lines.length) {
+
+        if (
+            charIndex <
+            lines[lineIndex].length
+        ) {
+
+            box.innerHTML +=
+                lines[lineIndex]
+                .charAt(charIndex);
+
+            charIndex++;
+
+            setTimeout(
+                startTypewriter,
+                100
+            );
+
+        } else {
+
+            box.innerHTML += "<br>";
+
+            lineIndex++;
+
+            charIndex = 0;
+
+            setTimeout(
+                startTypewriter,
+                500
+            );
+
+        }
+
+    } else {
+
+        openNotificationChat();
+
+    }
+
+}
+
+
+function startLiveCounter() {
+
+    const startDate =
+        new Date(
+            "2026-05-23T21:00:00"
+        );
+
+    setInterval(() => {
+
+        const now = new Date();
+
+        let years =
+            now.getFullYear()
+            - startDate.getFullYear();
+
+        let months =
+            now.getMonth()
+            - startDate.getMonth();
+
+        let days =
+            now.getDate()
+            - startDate.getDate();
+
+        if (days < 0) {
+
+            months--;
+
+            const prevMonth =
+                new Date(
+                    now.getFullYear(),
+                    now.getMonth(),
+                    0
+                );
+
+            days +=
+                prevMonth.getDate();
+
+        }
+
+        if (months < 0) {
+
+            years--;
+            months += 12;
+
+        }
+
+        document.getElementById(
+            "c-years"
+        ).innerText = years;
+
+        document.getElementById(
+            "c-months"
+        ).innerText = months;
+
+        document.getElementById(
+            "c-days"
+        ).innerText = days;
+
+        document.getElementById(
+            "c-hours"
+        ).innerText =
+            now.getHours();
+
+        document.getElementById(
+            "c-minutes"
+        ).innerText =
+            now.getMinutes();
+
+        document.getElementById(
+            "c-seconds"
+        ).innerText =
+            now.getSeconds();
+
+    }, 1000);
+
+}
+
+
+function unlockCard(card, msg) {
+
+    if (
+        card.classList.contains(
+            "unlocked"
+        )
+    ) return;
+
+    card.classList.add(
+        "unlocked"
+    );
+
+    const icon =
+        card.querySelector("i");
+
+    const title =
+        card.querySelector(
+            ".card-title"
+        );
+
+    const text =
+        card.querySelector(
+            ".card-inner-text"
+        );
+
+    if (icon)
+        icon.style.display = "none";
+
+    if (title)
+        title.style.display = "none";
+
+    text.innerText = msg;
+    text.style.display = "block";
+
+    card.style.background =
+        "var(--deep-purple)";
+
+    card.style.borderColor =
+        "var(--glow-pink)";
+
+}
+
+
+function openNotificationChat() {
+
+    const chat =
+        document.getElementById(
+            "notification-chat"
+        );
+
+    chat.style.display = "block";
+
+    chat.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+function createFallingStars() {
+
+    const container =
+        document.getElementById(
+            "particles-container"
+        );
+
+    const icons = [
+        "✨",
+        "❤️"
+    ];
+
+    setInterval(() => {
+
+        const p =
+            document.createElement(
+                "div"
+            );
+
+        p.innerText =
+            icons[
+                Math.floor(
+                    Math.random()
+                    * icons.length
+                )
+            ];
+
+        p.style.position =
+            "absolute";
+
+        p.style.top = "-20px";
+
+        p.style.left =
+            Math.random() * 100
+            + "vw";
+
+        p.style.fontSize =
+            (Math.random() * 12 + 8)
+            + "px";
+
+        p.style.opacity =
+            Math.random() * .7;
+
+        p.style.transition =
+            "transform 5s linear, opacity 5s";
+
+        container.appendChild(p);
+
+        setTimeout(() => {
+
+            p.style.transform =
+                `translateY(105vh)
+                 translateX(${Math.random()*50-25}px)`;
+
+            p.style.opacity = "0";
+
+        }, 50);
+
+        setTimeout(() => {
+
+            p.remove();
+
+        }, 5000);
+
+    }, 250);
+
+}
+
+
+function toggleMusic() {
+
+    const audio =
+        document.getElementById(
+            "bg-music"
+        );
+
+    const status =
+        document.getElementById(
+            "music-status"
+        );
+
+    if (audio.paused) {
+
+        audio.play();
+
+        status.innerText =
+            "شغالة يا قلبي ❤️";
+
+    } else {
+
+        audio.pause();
+
+        status.innerText =
+            "شغلي الموسيقى يا روحي";
+
+    }
+  }
+
+function openMemory(image, text){
+
+    document.getElementById("memoryPopup").style.display = "flex";
+
+    document.getElementById("memoryImage").src = image;
+
+    document.getElementById("memoryText").innerHTML = text;
+
+}
+
+function closeMemory(){
+
+    document.getElementById("memoryPopup").style.display = "none";
+
+}
+  const songs = [
+    "https://files.catbox.moe/n3efrp.mp3",
+    "https://files.catbox.moe/0ilhgx.mp3"
+];
+
+let currentSong = 0;
+
+const player = document.getElementById("bg-music");
+
+player.src = songs[currentSong];
+
+player.addEventListener("ended", function () {
+
+    currentSong++;
+
+    if (currentSong >= songs.length) {
+        currentSong = 0;
+    }
+
+    player.src = songs[currentSong];
+    player.play();
+
+});
+function openChat(){
+    document.getElementById("love-chat").style.display="block";
+}
+
+function sendMsg(){
+
+    let input=document.getElementById("msgInput");
+
+    if(input.value.trim()=="") return;
+
+    let body=document.getElementById("chatBody");
+
+    body.innerHTML+=`
+    <div class="message sent">
+        ${input.value}
+    </div>`;
+
+    body.scrollTop=body.scrollHeight;
+
+    showNotification("✅ تم إرسال الرسالة بنجاح ❤️");
+
+    input.value="";
+}
+  function openChat(){
+
+    document.getElementById("love-chat").style.display = "block";
+
+}
+
+function sendMsg(){
+
+    let input = document.getElementById("msgInput");
+
+    if(input.value.trim() == "") return;
+
+    let body = document.getElementById("chatBody");
+
+    body.innerHTML += `
+        <div class="message sent">
+            ${input.value}
+        </div>
+    `;
+
+    body.scrollTop = body.scrollHeight;
+
+    showNotification("✅ تم إرسال الرسالة بنجاح ❤️");
+
+    input.value = "";
+
+}
+</script>
+
+</body>
+</html>
